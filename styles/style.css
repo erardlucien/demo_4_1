@@ -28,13 +28,15 @@
 }
 
 .navbar-btn:checked ~ .logo-and-label > .label-navbar-btn > .navbar-icon::before {
-    transform: rotate(405deg) translate(1px, 6px);
+    top: 0;
+    transform: rotate(405deg);
     background-color: white;
     transition: 0.9s;
 }
 
 .navbar-btn:checked ~ .logo-and-label > .label-navbar-btn > .navbar-icon::after {
-    transform: rotate(-405deg) translate(1px, -6px);
+    top: 0;
+    transform: rotate(-405deg);
     background-color: white;
     transition: 0.9s;
 }
@@ -109,13 +111,34 @@
 .navbar-link {
     text-decoration: none;
     display: flex;
+    position: relative;
     flex-direction: column;
     color: white;
+    width: 70px;
     padding: 15px 0;
+}
+
+.navbar-link::after {
+    content: '';
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    width: 0;
+    height: 2px;
+    background: transparent;
+    transition: 0.9s;
 }
 
 .navbar-link:hover {
     color: black;
+    background-color: azure;
+    transition: 0.9s;
+}
+
+.navbar-link:hover::after {
+    background: linear-gradient(to left, hsla(0, 23%, 50%, 0.3), hsla(55, 100%, 50%, 0.9), hsla(123, 71%, 39%, 0.5));
+    width: 70px;
     transition: 0.9s;
 }
 
@@ -143,8 +166,7 @@
 /* navbar and his elements */
 
 .navbar,
-.navbar-menu,
-.navbar-link {
+.navbar-menu {
     flex-direction: row;
 }
 
@@ -175,7 +197,11 @@
 /* navbar-link */
 
 .navbar-link {
-    padding: 0 15px;
+    padding: 0 10px;
+}
+
+.navbar-link::after {
+    top: 15px;
 }
 
 }
